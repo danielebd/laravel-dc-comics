@@ -45,7 +45,7 @@
                 <input type="text" class="form-control" id="artists" name="artists">
             </div>
             <div class="mb-3">
-                <label for="writers" class="form-label">Autore</label>
+                <label for="writers" class="form-label">Sceneggiatore</label>
                 <input type="text" class="form-control" id="writers" name="writers">
             </div>
             <button type="submit" class="btn btn-primary mb-4">Inserisci</button>
