@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>@yield('page.title')</h1>
+        <h1 class="p-2">@yield('page.title')</h1>
     </header>
     <main>
         @yield('page.main')
