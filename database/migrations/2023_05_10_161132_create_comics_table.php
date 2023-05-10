@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title',100);
             $table->text('description');
             $table->text('thumb');
-            $table->unsignedTinyInteger('price');
+            $table->float('price', 6, 2);
             $table->string('series', 100);
             $table->date('sale_date');
             $table->string('type', 100);
