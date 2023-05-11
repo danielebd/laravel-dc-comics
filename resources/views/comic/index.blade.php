@@ -24,7 +24,7 @@
                     <td><a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary btn-sm">Dettagli</a></td>
                     <td><a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary btn-sm">Modifica</a></td>
                     <td>
-                        <form action="{{ route('comics.destroy'), $comic->id }}" method="POST">
+                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Cancella">
