@@ -5,7 +5,7 @@
 @endsection
 
 @section('page.main')
-<a href="{{route('comics.create')}}" class="btn btn-success m-2">Inserisci Comic</a>
+    <a href="{{ route('comics.create') }}" class="btn btn-success m-2">Inserisci Comic</a>
     <table class="table">
         <thead>
             <tr>
@@ -18,11 +18,19 @@
         <tbody>
             @foreach ($comics as $comic)
                 <tr>
-                    <td>{{$comic->title}}</td>
-                    <td>{{$comic->series}}</td>
-                    <td>${{$comic->price}}</td>
-                    <td><a href="{{ route('comics.show', $comic->id)}}" class="btn btn-primary btn-sm">Dettagli</a></td>
-                    <td><a href="{{ route('comics.edit', $comic->id)}}" class="btn btn-primary btn-sm">Modifica</a></td>
+                    <td>{{ $comic->title }}</td>
+                    <td>{{ $comic->series }}</td>
+                    <td>${{ $comic->price }}</td>
+                    <td><a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary btn-sm">Dettagli</a></td>
+                    <td><a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary btn-sm">Modifica</a></td>
+                    <td>
+                        <form action="{{ route('comics.destroy'), $comic->id }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Cancella">
+                        </form>
+                        
+                    </td>
                 </tr>
             @endforeach
         </tbody>

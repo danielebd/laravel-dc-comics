@@ -95,8 +95,10 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
 
-
+        //prendiamo dati dal modul
         $data = $request->all();
+
+        //mapping dei campi
         $comic->title = $data['title'];
         $comic->description = $data['description'];
         $comic->thumb = $data['thumb'];
@@ -106,8 +108,12 @@ class ComicController extends Controller
         $comic->type = $data['type'];
         $comic->artists = json_encode($data['artists']);
         $comic->writers = json_encode($data['writers']);
+
+        //save
         $comic->save();
-        return to_route('comics.index');
+
+
+        return to_route('comics.index', $comic->id);
     }
 
     /**
@@ -116,8 +122,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return to_route('comics.index');
     }
 }
