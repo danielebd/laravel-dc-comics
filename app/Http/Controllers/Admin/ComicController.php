@@ -43,18 +43,22 @@ class ComicController extends Controller
         $data = $request->all();
 
         $newComic = new Comic();
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->sale_date = $data['sale_date'];
-        $newComic->type = $data['type'];
+        // $newComic->title = $data['title'];
+        // $newComic->description = $data['description'];
+        // $newComic->thumb = $data['thumb'];
+        // $newComic->price = $data['price'];
+        // $newComic->series = $data['series'];
+        // $newComic->sale_date = $data['sale_date'];
+        // $newComic->type = $data['type'];
+        
+        $newComic->fill($data);
+        
         $newComic->artists = json_encode($data['artists']);
         $newComic->writers = json_encode($data['writers']);
+
         $newComic->save();
 
-        return redirect()->route('comics.show', $newComic->id);
+        return to_route('comics.show', $newComic->id);
     }
 
     /**
@@ -76,9 +80,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comic.edit', compact('comic'));
     }
 
     /**
@@ -88,9 +92,22 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+
+
+        $data = $request->all();
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+        $comic->artists = json_encode($data['artists']);
+        $comic->writers = json_encode($data['writers']);
+        $comic->save();
+        return to_route('comics.index');
     }
 
     /**

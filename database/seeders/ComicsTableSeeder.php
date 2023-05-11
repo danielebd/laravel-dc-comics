@@ -34,12 +34,3 @@ class ComicsTableSeeder extends Seeder
     }
 }
 
-// $table->string('title',100);
-// $table->text('description');
-// $table->text('thumb');
-// $table->unsignedTinyInteger('price');
-// $table->string('series', 100);
-// $table->date('sale_date');
-// $table->string('type', 100);
-// $table->json('artists');
-// $table->json('writers');
