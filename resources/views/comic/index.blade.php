@@ -29,10 +29,11 @@
                             @method('DELETE')
                             <input type="submit" value="Cancella">
                         </form>
-                        
+
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 @endsection
+{{--  --}}

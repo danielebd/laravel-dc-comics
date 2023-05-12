@@ -38,9 +38,9 @@
             <div class="mb-3">
                 <label for="type" class="form-label">Tipo</label>
                 <select class="form-select" id="type" name="type">
-                    <option {{empty($comic->type) ? 'selected' : null}}></option>
-                    <option value="graphic novel" value="{{ $comic->type === 'graphic novel' ? 'selected' : null}}">graphic novel</option>
-                    <option value="comic book" value="{{ $comic->type === 'comic book' ? 'selected' : null}}">comic book</option>
+                    <option {{ empty($comic->type) ? 'selected' : null}}>Scegli il tipo</option>
+                    <option value="graphic novel" value="{{ $comic->type === 'graphic novel' ? 'selected' : null }}">Graphic novel</option>
+                    <option value="comic book" value="{{ $comic->type === 'comic book' ? 'selected' : null }}">Comic book</option>
                 </select>
             </div>
             <div class="mb-3">
